@@ -18,7 +18,8 @@ export default class Index extends wepy.page {
     }
   };
   onLoad() {
-    console.log('onLoad')
+    console.log('onLoad');
+    wepy.request('http://jonpad.com.cn/api_s/memoryOriginalData.do').then((d) => console.log(d));
   };
 }
 </script>
