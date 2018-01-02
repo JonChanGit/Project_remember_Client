@@ -1,0 +1,32 @@
+<template>
+  <view>
+      <text @tap="onTap">{{msg}}</text>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: 'R E M E M B E R'
+  };
+  data = {
+    msg: 'Hello World'
+  };
+  methods={
+    onTap() {
+      console.log('onTap')
+    }
+  };
+  onLoad() {
+    console.log('onLoad')
+  };
+}
+</script>
+<style lang="less">
+page{
+    background-color: #868686;
+    color: white;
+    text-align: center;
+    font-size: .8rem;
+}
+</style>

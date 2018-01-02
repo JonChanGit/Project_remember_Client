@@ -1,0 +1,25 @@
+<template>
+  <view>
+      <text>{{msg}}</text>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: 'test'
+  };
+  data = {
+    msg: 'Hello World'
+  };
+  methods={
+
+  };
+  onLoad() {
+    console.log('onLoad')
+  };
+}
+</script>
+<style lang="less" scoped>
+
+</style>
