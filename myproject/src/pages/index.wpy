@@ -1,16 +1,26 @@
 <template>
   <view>
       <text @tap="onTap">{{msg}}</text>
+      <repeat for="{{list}}" key="index" index="index" item="item">
+        <listItem :item.sync="item"></listItem>
+      </repeat>
   </view>
 </template>
 <script>
 import wepy from 'wepy'
+import ListItem from '../components/listItem'
+
 export default class Index extends wepy.page {
   config = {
     navigationBarTitleText: 'R E M E M B E R'
   };
   data = {
-    msg: 'Hello World'
+    msg: '',
+    list: []
+
+  };
+  components = {
+    listItem: ListItem
   };
   methods={
     onTap() {
@@ -18,8 +28,19 @@ export default class Index extends wepy.page {
     }
   };
   onLoad() {
-    console.log('onLoad');
-    wepy.request('http://jonpad.com.cn/api_s/memoryOriginalData.do').then((d) => console.log(d));
+    console.log('onLoad')
+    wepy.request({
+      url: 'https://jonpad.com.cn/api_s/memoryOriginalData.do',
+      header: {
+        'content-type': 'json'
+      },
+      success: (data) => {
+        if (data.data.flag === true) {
+          this.list = data.data.list
+          this.$apply()
+        }
+      }
+    })
   };
 }
 </script>

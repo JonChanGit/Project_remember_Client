@@ -1,0 +1,34 @@
+<template>
+  <view class="list">
+   {{item.c_content}}
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class List extends wepy.component {
+    data = {
+      msg: 'list'
+    }
+
+    methods = {
+    }
+
+    props = {
+      item: {
+        type: Object,
+        default: null
+      }
+    }
+
+    onLoad () {
+    }
+  }
+</script>
+<style lang="less">
+.list{
+  margin: 1em auto;
+}
+.smItem{
+}
+</style>
