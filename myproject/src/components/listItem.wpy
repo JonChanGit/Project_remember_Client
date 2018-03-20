@@ -1,6 +1,6 @@
 <template>
   <view class="list">
-   {{item.c_content}}
+    <text selectable='true'>{{item.c_content}}</text>
   </view>
 </template>
 <script>
@@ -12,6 +12,10 @@
     }
 
     methods = {
+      launchAppError (err) {
+        console.log('launchAppError')
+        console.log(err)
+      }
     }
 
     props = {
@@ -28,6 +32,12 @@
 <style lang="less">
 .list{
   margin: 1em auto;
+  text {
+    border:0;
+    color: #fff;
+    line-height:1rem;
+    font-size: .8rem;
+  }
 }
 .smItem{
 }
